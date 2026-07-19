@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingBottom="16dp" />
+
+        <!-- ====== 1. URL / PIN ====== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. Web URL &amp; Admin PIN"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
+
+        <EditText
+            android:id="@+id/url_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="https://your-restaurant.com"
+            android:inputType="textUri"
+            android:autofillHints="url" />
+
+        <EditText
+            android:id="@+id/pin_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Admin PIN (4+ digits)"
+            android:inputType="numberPassword"
+            android:autofillHints="password" />
+
+        <Button
+            android:id="@+id/save_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save URL + PIN" />
+
+        <!-- ====== 2. Permission checklist ====== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. Grant these permissions (no factory reset needed)"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingTop="28dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:id="@+id/home_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:paddingTop="6dp"
+            android:text="?  Set as Home Launcher" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:paddingStart="20dp"
+            android:paddingBottom="4dp"
+            android:text="Blocks the Home button from leaving the kiosk. Required." />
+        <Button
+            android:id="@+id/grant_home_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Open Home Launcher settings" />
+
+        <TextView
+            android:id="@+id/accessibility_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:paddingTop="16dp"
+            android:text="?  Accessibility Service" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:paddingStart="20dp"
+            android:paddingBottom="4dp"
+            android:text="Blocks Recents/switcher and any app the customer tries to launch. Required." />
+        <Button
+            android:id="@+id/grant_accessibility_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Open Accessibility settings" />
+
+        <TextView
+            android:id="@+id/overlay_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:paddingTop="16dp"
+            android:text="?  Display over other apps" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:paddingStart="20dp"
+            android:paddingBottom="4dp"
+            android:text="Blocks the notification pulldown by covering the status bar. Recommended." />
+        <Button
+            android:id="@+id/grant_overlay_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Open Overlay settings" />
+
+        <TextView
+            android:id="@+id/battery_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:paddingTop="16dp"
+            android:text="?  Ignore battery optimization" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:paddingStart="20dp"
+            android:paddingBottom="4dp"
+            android:text="Stops Android from killing the app after idle. Recommended." />
+        <Button
+            android:id="@+id/grant_battery_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Open Battery settings" />
+
+        <!-- ====== 3. Lockdown toggle + launch ====== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. Turn on lockdown"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingTop="28dp"
+            android:paddingBottom="8dp" />
+
+        <Button
+            android:id="@+id/lockdown_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kiosk Lockdown: OFF — tap to turn ON" />
+
+        <Button
+            android:id="@+id/launch_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Launch Kiosk (open the URL)" />
+
+        <!-- ====== Utilities ====== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Utilities"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingTop="28dp"
+            android:paddingBottom="8dp" />
+
+        <Button
+            android:id="@+id/clear_cache_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clear WebView Cache" />
+
+        <Button
+            android:id="@+id/reset_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reset (wipe URL + PIN + lockdown)" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:textSize="11sp"
+            android:text="If you forget the PIN and the phone is locked: from a PC with USB debugging on, run:  adb shell pm clear com.uno.kiosk" />
+
+    </LinearLayout>
+</ScrollView>
