@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.UnoKiosk" parent="Theme.Material3.DayNight.NoActionBar">
+    </style>
+
+    <style name="Theme.UnoKiosk.Fullscreen" parent="Theme.UnoKiosk">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>
