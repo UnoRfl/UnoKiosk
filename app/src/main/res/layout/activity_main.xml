@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Backup invisible hotspot: 5 taps in 3 seconds → PIN prompt. -->
+    <View
+        android:id="@+id/exit_hotspot"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_gravity="top|start"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="false" />
+
+    <!-- Draggable floating lock button — tap = PIN, drag = reposition. -->
+    <ImageView
+        android:id="@+id/floating_exit"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/floating_button_bg"
+        android:src="@drawable/ic_lock"
+        android:padding="15dp"
+        android:elevation="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="Exit kiosk" />
+
+</FrameLayout>

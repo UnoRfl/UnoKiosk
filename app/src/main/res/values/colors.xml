@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base surfaces -->
+    <color name="bg_deep">#0F0620</color>
+    <color name="bg_main">#14082A</color>
+    <color name="bg_card">#1D0F3B</color>
+    <color name="bg_input">#240F45</color>
+    <color name="bg_input_focused">#2E1560</color>
+
+    <!-- Borders -->
+    <color name="border_subtle">#3B2168</color>
+    <color name="border_accent">#AA3CFF</color>
+
+    <!-- Accents -->
+    <color name="neon_purple">#AA3CFF</color>
+    <color name="neon_purple_dim">#7C2BC4</color>
+    <color name="neon_pink">#FF3C5A</color>
+    <color name="neon_green">#33FF64</color>
+    <color name="neon_amber">#F5B544</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B4A4D0</color>
+    <color name="text_muted">#7263A0</color>
+    <color name="text_disabled">#4A3268</color>
+
+    <!-- Legacy -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+</resources>
