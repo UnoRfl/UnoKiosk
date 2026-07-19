@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
             android:paddingTop="6dp"
-            android:text="?  Set as Home Launcher" />
+            android:text="-  Set as Home Launcher" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
             android:paddingTop="16dp"
-            android:text="?  Accessibility Service" />
+            android:text="-  Accessibility Service" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
             android:paddingTop="16dp"
-            android:text="?  Display over other apps" />
+            android:text="-  Display over other apps" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
             android:paddingTop="16dp"
-            android:text="?  Ignore battery optimization" />
+            android:text="-  Ignore battery optimization" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
