@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="12dp"
+            android:paddingBottom="18dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Uno Kiosk"
+                android:textAppearance="@style/Text.Title"
+                android:textSize="30sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Restaurant kiosk lockdown"
+                android:textAppearance="@style/Text.Body"
+                android:paddingTop="4dp" />
+        </LinearLayout>
+
+        <!-- ============ STANDBY BANNER (visible only when EXITED=true) ============ -->
+        <LinearLayout
+            android:id="@+id/standby_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="20dp"
+            android:layout_marginBottom="14dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_key"
+                    android:layout_marginEnd="10dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Standby"
+                    android:textAppearance="@style/Text.SectionHeader"
+                    android:textColor="@color/neon_pink" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Uno Kiosk is exited. All permissions are still granted — nothing was removed. Tap Reactivate to bring back the kiosk with your saved settings."
+                android:textAppearance="@style/Text.Body"
+                android:paddingTop="6dp"
+                android:paddingBottom="16dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/reactivate_btn"
+                style="@style/Button.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reactivate Kiosk" />
+        </LinearLayout>
+
+        <!-- CARD 1: URL + PIN -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="20dp"
+            android:layout_marginBottom="14dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_link"
+                    android:layout_marginEnd="10dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Web URL &amp; PIN"
+                    android:textAppearance="@style/Text.SectionHeader" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The URL loads on launch. The PIN unlocks admin exit from the floating button."
+                android:textAppearance="@style/Text.Body"
+                android:paddingTop="6dp"
+                android:paddingBottom="16dp" />
+            <EditText
+                android:id="@+id/url_field"
+                style="@style/Input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="https://your-restaurant.com"
+                android:inputType="textUri"
+                android:autofillHints="url" />
+            <EditText
+                android:id="@+id/pin_field"
+                style="@style/Input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Admin PIN (4+ digits)"
+                android:inputType="numberPassword"
+                android:autofillHints="password" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/save_btn"
+                style="@style/Button.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Save" />
+        </LinearLayout>
+
+        <!-- CARD 2: PERMISSIONS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="20dp"
+            android:layout_marginBottom="14dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_shield"
+                    android:layout_marginEnd="10dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Permissions"
+                    android:textAppearance="@style/Text.SectionHeader" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tap the (i) icon on any permission for step-by-step help finding it on your phone."
+                android:textAppearance="@style/Text.Body"
+                android:paddingTop="6dp"
+                android:paddingBottom="14dp" />
+            <include layout="@layout/perm_row" android:id="@+id/perm_home"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="@color/border_subtle" android:layout_marginTop="12dp" android:layout_marginBottom="12dp" />
+            <include layout="@layout/perm_row" android:id="@+id/perm_accessibility"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="@color/border_subtle" android:layout_marginTop="12dp" android:layout_marginBottom="12dp" />
+            <include layout="@layout/perm_row" android:id="@+id/perm_overlay"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="@color/border_subtle" android:layout_marginTop="12dp" android:layout_marginBottom="12dp" />
+            <include layout="@layout/perm_row" android:id="@+id/perm_battery"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- CARD 3: WHAT TO BLOCK -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="20dp"
+            android:layout_marginBottom="14dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_tune"
+                    android:layout_marginEnd="10dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="What to block"
+                    android:textAppearance="@style/Text.SectionHeader" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Toggle which system features are locked out while kiosk lockdown is active."
+                android:textAppearance="@style/Text.Body"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp" />
+            <include layout="@layout/switch_row" android:id="@+id/switch_recents"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <include layout="@layout/switch_row" android:id="@+id/switch_notifications"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <include layout="@layout/switch_row" android:id="@+id/switch_volume"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <include layout="@layout/switch_row" android:id="@+id/switch_screenshots"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <include layout="@layout/switch_row" android:id="@+id/switch_immersive"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- CARD 4: BEHAVIOR -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="20dp"
+            android:layout_marginBottom="14dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_battery"
+                    android:layout_marginEnd="10dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Behavior"
+                    android:textAppearance="@style/Text.SectionHeader" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="How the kiosk runs while active."
+                android:textAppearance="@style/Text.Body"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp" />
+            <include layout="@layout/switch_row" android:id="@+id/switch_screen_on"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <include layout="@layout/switch_row" android:id="@+id/switch_auto_reload"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <include layout="@layout/switch_row" android:id="@+id/switch_fab"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- CARD 5: LOCKDOWN -->
+        <LinearLayout
+            android:id="@+id/lockdown_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="20dp"
+            android:layout_marginBottom="14dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_lock"
+                    android:layout_marginEnd="10dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kiosk mode"
+                    android:textAppearance="@style/Text.SectionHeader" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Turn lockdown on to activate blocking, then launch the kiosk."
+                android:textAppearance="@style/Text.Body"
+                android:paddingTop="6dp"
+                android:paddingBottom="14dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/lockdown_btn"
+                style="@style/Button.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Turn lockdown ON" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/launch_btn"
+                style="@style/Button.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Launch Kiosk" />
+        </LinearLayout>
+
+        <!-- UTILITIES -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="4dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="14dp">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/clear_cache_btn"
+                style="@style/Button.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Clear WebView cache" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/reset_btn"
+                style="@style/Button.Danger"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reset (wipe URL, PIN, settings)" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="18dp"
+                android:text="Forgot the PIN? From a PC with USB debugging:\nadb shell pm clear com.uno.kiosk"
+                android:textAppearance="@style/Text.Caption"
+                android:fontFamily="monospace"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- ============ FULL EXIT ============ -->
+        <LinearLayout
+            android:id="@+id/full_exit_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="40dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_key"
+                    android:layout_marginEnd="10dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Full Exit"
+                    android:textAppearance="@style/Text.SectionHeader"
+                    android:textColor="@color/neon_pink" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Puts the app into Standby. Turns off lockdown, stops the overlay, and stops auto-launching. Your PIN, URL, all permissions and toggles are kept exactly as they are. Reactivate any time by opening Uno Kiosk from the app drawer."
+                android:textAppearance="@style/Text.Body"
+                android:paddingTop="6dp"
+                android:paddingBottom="16dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/full_exit_btn"
+                style="@style/Button.Danger"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="52dp"
+                android:text="Fully exit Uno Kiosk" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
