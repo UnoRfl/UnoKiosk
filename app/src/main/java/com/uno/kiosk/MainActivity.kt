@@ -284,7 +284,12 @@ class MainActivity : AppCompatActivity() {
     // File chooser plumbing
     // ============================================================
 
-    /** Maps HTML accept entries (".csv", "image/*") to concrete MIME types. */
+    /**
+     * Maps HTML accept entries to concrete MIME types.
+     * Handles both extension form (".csv") and wildcard form (image slash star).
+     * NOTE: never write a literal star-slash pair in a block comment here —
+     * Kotlin nests block comments, so it would silently swallow the code below.
+     */
     private fun acceptToMimeTypes(acceptTypes: List<String>): Array<String> {
         if (acceptTypes.isEmpty()) return arrayOf("*/*")
         val out = linkedSetOf<String>()
