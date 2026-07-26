@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Uno Kiosk</string>
+    <string name="settings_title">Kiosk Settings</string>
+    <string name="accessibility_service_label">Uno Kiosk Lockdown</string>
+    <string name="accessibility_service_desc">Blocks other apps from opening while the kiosk is locked. Only active when Kiosk Lockdown is turned on in the app.</string>
+</resources>
