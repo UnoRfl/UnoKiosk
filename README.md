@@ -1,4 +1,6 @@
-# Uno Kiosk
+<p align="center"><img src=".github/assets/banner.png" alt="UnoKiosk banner" width="100%"></p>
+
+# <img src=".github/assets/icon.png" width="38" align="top" alt=""> Uno Kiosk
 
 Barebones Android WebView kiosk. Loads one URL, locks the phone into it, hidden PIN exit. No backend. All settings on-device.
 
